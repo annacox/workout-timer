@@ -1,0 +1,33 @@
+extends:
+  - metalab
+env:
+  browser: true
+rules:
+  complexity: 0
+  max-len: 0
+  valid-jsdoc: 0
+globals:
+  module: false
+  require: false
+  process: false
+  global: true
+  __DEV__: true
+overrides:
+  -
+    files:
+      - "babel.config.js"
+      - "jest.config.js"
+    rules:
+      metalab/import/no-commonjs: 0
+  -
+    files: "*.test.js"
+    env:
+      jest: true
+  -
+    files: "test/feature/**/*.test.js"
+    env:
+      jest: true
+    globals:
+      element: true
+      device: true
+      by: true
